@@ -8,14 +8,9 @@ import { CardDefaultInterface } from "../services/interfaces/CardDefaultInterfac
 import { DefaultImg } from "./DefaultImg";
 import { Link } from "react-router-dom";
 
-export function CardDefault({
-  title,
-  description,
-  image,
-  id,
-}: CardDefaultInterface) {
+export function CardDefault({ recette }: CardDefaultInterface) {
   return (
-    <Link to={`/recetteInfos/${id}`}>
+    <Link to={`/recetteInfos/${recette.id}`}>
       <Card className="flex flex-row bg-deep-orange-400">
         <CardHeader
           color="blue-gray"
@@ -23,13 +18,13 @@ export function CardDefault({
           floated={false}
           shadow={false}
         >
-          <DefaultImg image={image} />
+          <DefaultImg image={recette.image} />
         </CardHeader>
         <CardBody>
           <Typography variant="h5" color="blue-gray" className="mb-2">
-            {title}
+            {recette.title}
           </Typography>
-          <Typography>{description}</Typography>
+          <Typography>{recette.description}</Typography>
         </CardBody>
       </Card>
     </Link>

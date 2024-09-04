@@ -1,6 +1,5 @@
 import { Button } from "@material-tailwind/react";
 import { CardDefault } from "../../components/CardDefault";
-import { useEffect, useState } from "react";
 import { getRecettes } from "../../services/api/recette";
 import { recetteFakerInterface } from "../../services/fakers/recetteFaker";
 import { useQuery } from "@tanstack/react-query";
@@ -21,13 +20,7 @@ export default function HomePage() {
       <div className="flex flex-col gap-4">
         {recettes &&
           recettes.map((recette: recetteFakerInterface) => (
-            <CardDefault
-              key={recette.id}
-              id={recette.id}
-              title={recette.title}
-              description={recette.description}
-              image={recette.image}
-            />
+            <CardDefault key={recette.id} recette={recette} />
           ))}
       </div>
     </>
